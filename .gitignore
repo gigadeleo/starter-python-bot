@@ -60,3 +60,7 @@ target/
 
 .DS_Store
 plot.png
+bin
+include
+pip-selfcheck.json
+.gitignore
