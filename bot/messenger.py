@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import logging
 import random
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 logger = logging.getLogger(__name__)
 
