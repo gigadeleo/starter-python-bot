@@ -39,7 +39,7 @@ class Messenger(object):
         txt = '{}, <@{}>!'.format(random.choice(greetings), user_id)
         self.send_message(channel_id, txt)
 
-    def write_song(self, channel_id, user_id):
+    def write_song(self, channel_id):
         song = ['https://www.youtube.com/watch?v=A-pcwbVl_qc',
            'https://www.youtube.com/watch?v=X5-C1Kx_JNA',
            'https://www.youtube.com/watch?v=Qg_AhuBqQUI',
@@ -63,7 +63,7 @@ class Messenger(object):
         txt = '{}'.format(random.choice(idiom))
         self.send_message(channel_id, txt)
         self.clients.send_user_typing_pause(channel_id)
-        error = "\rI'm sorry, that means I didn't quite understand... If you want some help try this `<@" + bot_uid + "> help`)"
+        error = "\rI'm sorry, that means I didn't quite understand... If you want some help try this `<@" + bot_uid + "> help`"
         self.send_message(channel_id, error)
 
 
