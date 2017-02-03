@@ -23,10 +23,10 @@ class Messenger(object):
     def write_help_message(self, channel_id):
         bot_uid = self.clients.bot_user_id()
         txt = '{}\n{}\n{}\n{}\n\n{}'.format(
-            "Hi! I'm Renato! You're friendly Slack bot to help you learn Maltese. I'll *_respond_* to the following commands:\n"
-            "> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:\r"
-            "> `motd <@" + bot_uid + ">` - I'll reply back with the Maltese word of the day. :flag-mt:\r"
-            "> `kantali <@" + bot_uid + ">` - I'll load a suggested song from my very own favourite playlist. :musical_note: \r"
+            "Hi! I'm Renato! You're friendly Slack bot to help you learn Maltese. I'll *_respond_* to the following commands:\n",
+            "> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:\r",
+            "> `motd <@" + bot_uid + ">` - I'll reply back with the Maltese word of the day. :flag-mt:\r",
+            "> `kantali <@" + bot_uid + ">` - I'll load a suggested song from my very own favourite playlist. :musical_note: \r",
             "Disclaimer: Any resemblance between 'this bot' and any persons, living or dead, is purely unintentional.")
             #"I'm your friendly Slack bot written in Python.  I'll *_respond_* to the following commands:",
             #"> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:",
@@ -44,7 +44,7 @@ class Messenger(object):
            'https://www.youtube.com/watch?v=X5-C1Kx_JNA',
            'https://www.youtube.com/watch?v=Qg_AhuBqQUI',
            'https://www.youtube.com/watch?v=l407bnafnlU']
-        txt = '{}, <@{}>!'.format(random.choice(song), user_id)
+        txt = '{}'.format(random.choice(song))
         self.send_message(channel_id, txt)
 
     def write_prompt(self, channel_id):
@@ -63,7 +63,7 @@ class Messenger(object):
         txt = '{}'.format(random.choice(idiom))
         self.send_message(channel_id, txt)
         self.clients.send_user_typing_pause(channel_id)
-        error = "\rI'm sorry, I didn't quite understand... Can I help you? (e.g. `<@" + bot_uid + "> help`)"
+        error = "\rI'm sorry, that means I didn't quite understand... If you want some help try this `<@" + bot_uid + "> help`)"
         self.send_message(channel_id, error)
 
 
