@@ -27,7 +27,7 @@ class Messenger(object):
             "> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:\r",
             "> `motd <@" + bot_uid + ">` - I'll reply back with the Maltese word of the day. :flag-mt:\r",
             "> `kantali <@" + bot_uid + ">` - I'll load a suggested song from my very own favourite playlist. :musical_note: \r",
-            "Disclaimer: Any resemblance between 'this bot' and any persons, living or dead, is purely unintentional.")
+            "Disclaimer: Any resemblance between this bot and any persons, living or dead, is purely unintentional.")
             #"I'm your friendly Slack bot written in Python.  I'll *_respond_* to the following commands:",
             #"> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:",
             #"> `<@" + bot_uid + "> joke` - I'll tell you one of my finest jokes, with a typing pause for effect. :laughing:",
@@ -63,7 +63,7 @@ class Messenger(object):
         txt = '{}'.format(random.choice(idiom))
         self.send_message(channel_id, txt)
         self.clients.send_user_typing_pause(channel_id)
-        error = "\rI'm sorry, that means I didn't quite understand... If you want some help try this `<@" + bot_uid + "> help`"
+        error = "\rI'm sorry, that means I didn't quite understand... Try this `<@" + bot_uid + "> help`"
         self.send_message(channel_id, error)
 
 
@@ -74,6 +74,11 @@ class Messenger(object):
         answer = "To eat the chicken on the other side! :laughing:"
         self.send_message(channel_id, answer)
 
+    def write_motd(self, channel_id, file, example_phrase):
+        txt = "Here is the Maltism of the Day (motd)"
+        self.send_message(channel_id, txt)
+        self.clients.web.chat.post_image(filename=file, token=slack_token, channels=channel_id)
+        self.send_message(channel_id, example_phrase)
 
     def write_error(self, channel_id, err_msg):
         txt = ":face_with_head_bandage: my maker didn't handle this error very well:\n>```{}```".format(err_msg)

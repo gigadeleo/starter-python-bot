@@ -2,6 +2,7 @@
 import json
 import logging
 import re
+from motd import *
 
 logger = logging.getLogger(__name__)
 
@@ -47,8 +48,13 @@ class RtmEventHandler(object):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
                 elif 'kantali' in msg_txt:
                     self.msg_writer.write_song(event['channel'])
-                elif 'joke' in msg_txt:
-                    self.msg_writer.write_joke(event['channel'])
+                elif 'motd' in msg_txt:
+
+                    values = extract_word()
+                    file = create_mwotd (values[0],values[1],values[2])
+                    example_phrase = values[3]
+                    self.msg_writer.write_motd(event['channel'], example_phrase)
+
                 elif 'attachment' in msg_txt:
                     self.msg_writer.demo_attachment(event['channel'])
                 elif 'echo' in msg_txt:
