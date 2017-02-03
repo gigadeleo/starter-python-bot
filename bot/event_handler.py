@@ -46,7 +46,7 @@ class RtmEventHandler(object):
                 elif re.search('hi|hey|hello|howdy', msg_txt):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
                 elif 'kantali' in msg_txt:
-                    self.msg_writer.write_joke(event['channel'])
+                    self.msg_writer.write_song(event['channel'])
                 elif 'joke' in msg_txt:
                     self.msg_writer.write_joke(event['channel'])
                 elif 'attachment' in msg_txt:

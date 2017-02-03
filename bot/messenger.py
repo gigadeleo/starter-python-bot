@@ -22,13 +22,12 @@ class Messenger(object):
 
     def write_help_message(self, channel_id):
         bot_uid = self.clients.bot_user_id()
-        txt = '{}\n{}\n{}\n{}'.format(
-            """Hi! I'm Renato! You're friendly Slack bot to help you learn Maltese. I'll *_respond_* to the following commands:\n
-> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:\r
-> `motd <@" + bot_uid + ">` - I'll reply back with the Maltese word of the day. :flag-mt:\r
-> `kantali <@" + bot_uid + ">` - I'll load a suggested song from my very own favourite playlist. :musical_note: \r
-\n\n
-Disclaimer: Any resemblance between 'this bot' and any persons, living or dead, is purely unintentional.""")
+        txt = '{}\n{}\n{}\n{}\n\n{}'.format(
+            "Hi! I'm Renato! You're friendly Slack bot to help you learn Maltese. I'll *_respond_* to the following commands:\n"
+            "> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:\r"
+            "> `motd <@" + bot_uid + ">` - I'll reply back with the Maltese word of the day. :flag-mt:\r"
+            "> `kantali <@" + bot_uid + ">` - I'll load a suggested song from my very own favourite playlist. :musical_note: \r"
+            "Disclaimer: Any resemblance between 'this bot' and any persons, living or dead, is purely unintentional.")
             #"I'm your friendly Slack bot written in Python.  I'll *_respond_* to the following commands:",
             #"> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:",
             #"> `<@" + bot_uid + "> joke` - I'll tell you one of my finest jokes, with a typing pause for effect. :laughing:",
