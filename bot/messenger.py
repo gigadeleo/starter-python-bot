@@ -21,21 +21,50 @@ class Messenger(object):
     def write_help_message(self, channel_id):
         bot_uid = self.clients.bot_user_id()
         txt = '{}\n{}\n{}\n{}'.format(
-            "I'm your friendly Slack bot written in Python.  I'll *_respond_* to the following commands:",
-            "> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:",
-            "> `<@" + bot_uid + "> joke` - I'll tell you one of my finest jokes, with a typing pause for effect. :laughing:",
-            "> `<@" + bot_uid + "> attachment` - I'll demo a post with an attachment using the Web API. :paperclip:")
+            """Hi! I'm Renato! You're friendly Slack bot to help you learn Maltese. I'll *_respond_* to the following commands:\n
+> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:\r
+> `motd <@" + bot_uid + ">` - I'll reply back with the Maltese word of the day. :flag-mt:\r
+> `kantali <@" + bot_uid + ">` - I'll load a suggested song from my very own favourite playlist. :musical_note: \r
+\n\n
+Disclaimer: Any resemblance between 'this bot' and any persons, living or dead, is purely unintentional.""")
+            #"I'm your friendly Slack bot written in Python.  I'll *_respond_* to the following commands:",
+            #"> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:",
+            #"> `<@" + bot_uid + "> joke` - I'll tell you one of my finest jokes, with a typing pause for effect. :laughing:",
+            #"> `<@" + bot_uid + "> attachment` - I'll demo a post with an attachment using the Web API. :paperclip:"
         self.send_message(channel_id, txt)
 
     def write_greeting(self, channel_id, user_id):
-        greetings = ['Hi', 'Hello', 'Nice to meet you', 'Howdy', 'Salutations']
+        greetings = ['Hi', 'Hello', 'Nice to meet you', 'Howdy', 'Salutations', 'Bonġu', 'X\'għandna ġisem']
         txt = '{}, <@{}>!'.format(random.choice(greetings), user_id)
+        self.send_message(channel_id, txt)
+
+    def write_song(self, channel_id, user_id):
+        song = ['https://www.youtube.com/watch?v=A-pcwbVl_qc',
+           'https://www.youtube.com/watch?v=X5-C1Kx_JNA',
+           'https://www.youtube.com/watch?v=Qg_AhuBqQUI',
+           'https://www.youtube.com/watch?v=l407bnafnlU']
+        txt = '{}, <@{}>!'.format(random.choice(song), user_id)
         self.send_message(channel_id, txt)
 
     def write_prompt(self, channel_id):
         bot_uid = self.clients.bot_user_id()
-        txt = "I'm sorry, I didn't quite understand... Can I help you? (e.g. `<@" + bot_uid + "> help`)"
+        idiom = ['Toni taghni tina talli taghjtu tuta tajba, talli taghjtu tuta tajba Toni taghni tina.',
+           'Dari rari tara re, tara lira tara re.',
+           'Ħija taġhni ħawħa u qalli: "Ħa, ħi, ħudu u ħawilla fil-ħamrija ħamra taħt il-ħitan tà Ħararaw.',
+           'Trakk fuq trakk. Trakk taħt trakk.',
+           'Ġorġ raġa’ ġà mill-gaġġa tal-ġgant.',
+           'Platt fuq platt, platt taħt platt.',
+           'Qafas tal-qasab imdendel mas-saqaf.',
+           'Patri minn Napli mar Kapri għall-papri; Mela f\'Napli m\'hemmx papri; Biex patri minn Napli mar Kapri għall-papri',
+           'Tqaħqaħt tqaħqieqa u t-tqaħqieha li tqaħqaht kienet tqaħqieha kbira.',
+           'Il-pespus pespes pespisa lil pespusa tal-pespus u l-pespusa tal-pespus għat-tpespisa tal-pespus, pespset.',
+           'Platti ċatti platti fondi, int u tiekol tikkonfondi.']
+        txt = '{}'.format(random.choice(idiom))
         self.send_message(channel_id, txt)
+        self.clients.send_user_typing_pause(channel_id)
+        error = "\rI'm sorry, I didn't quite understand... Can I help you? (e.g. `<@" + bot_uid + "> help`)"
+        self.send_message(channel_id, error)
+
 
     def write_joke(self, channel_id):
         question = "Why did the python cross the road?"
