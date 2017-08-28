@@ -67,7 +67,7 @@ def extract_word():
 def create_mwotd(maltese_word, english_word, word_type):
     # open a random background image, set draw, set fonts
     rnd_back = random.randint(1,6)
-    img = Image.open("motd/image" + str(rnd_back) + ".png")
+    img = Image.open("motd\image" + str(rnd_back) + ".png")
     draw = ImageDraw.Draw(img)
     mword_font = ImageFont.truetype(font="Verdana.ttf", size=50)
     eword_font = ImageFont.truetype(font="Verdana.ttf", size=30)
@@ -96,7 +96,7 @@ def create_mwotd(maltese_word, english_word, word_type):
 
     # save image for today (where Monday is 0 and Sunday is 6)
     daynum = datetime.datetime.today().weekday()
-    filename = 'motd/' + str(daynum) + '_image.png'
+    filename = 'motd\' + str(daynum) + '_image.png'
     img.save(filename)
 
     return filename
