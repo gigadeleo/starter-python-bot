@@ -49,24 +49,17 @@ class RtmEventHandler(object):
                 elif 'kantali' in msg_txt:
                     self.msg_writer.write_song(event['channel'])
                 elif 'motd' in msg_txt:
-
                     values = extract_word()
-                    file = create_mwotd (values[0],values[1],values[2])
+                    file = create_mwotd(values[0],values[1],values[2])
                     example_phrase = values[3]
-                    
-                    print values
-                    print file
-                    print example_phrase
-                    
-                    self.msg_writer.write_motd(event['channel'], example_phrase)
-
+                    #self.msg_writer.write_motd(event['channel'], example_phrase)
+                    self.msg_writer.write_motd(event['channel'])
                 elif 'attachment' in msg_txt:
                     self.msg_writer.demo_attachment(event['channel'])
                 elif 'echo' in msg_txt:
                     self.msg_writer.send_message(event['channel'], msg_txt)
                 else:
                     self.msg_writer.write_prompt(event['channel'])
-
     def _is_direct_message(self, channel):
         """Check if channel is a direct message channel
 
