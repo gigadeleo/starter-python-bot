@@ -94,7 +94,7 @@ def create_mwotd(maltese_word, english_word, word_type):
         current_h += h + pad
     current_h += h + pad
 
-    # save image for today (where Monday is 0 and Sunday is 6)
+    # save image for today (where Monday is 0 and Sunday is 6).
     daynum = datetime.datetime.today().weekday()
     filename = 'motd/' + str(daynum) + '_image.png'
     img.save(filename)
