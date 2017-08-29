@@ -57,6 +57,10 @@ def extract_word():
                 # print "some fields empty"
             else:
                 fields_full = 1
+            print "MW:" + maltese_word
+            print "EW:" + english_word
+            print "WT:" + word_type
+            print "EPh:" + example_phrase1
         except:
             fields_full = 0
             # print "Exception: Non-conforming format."
