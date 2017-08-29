@@ -68,6 +68,8 @@ def create_mwotd(maltese_word, english_word, word_type):
     rnd_back = random.randint(1,6)
     img = Image.open("bot/motd/image" + str(rnd_back) + ".png")
     draw = ImageDraw.Draw(img)
+    mword_font = ImageFont.load_default()
+    eword_font = ImageFont.load_default()
     #mword_font = ImageFont.truetype(font="Verdana.ttf", size=50)
     #eword_font = ImageFont.truetype(font="Verdana.ttf", size=30)
     mword_font = ImageFont.truetype(size=50)
