@@ -53,6 +53,11 @@ class RtmEventHandler(object):
                     values = extract_word()
                     file = create_mwotd (values[0],values[1],values[2])
                     example_phrase = values[3]
+                    
+                    print values
+                    print file
+                    print example_phrase
+                    
                     self.msg_writer.write_motd(event['channel'], example_phrase)
 
                 elif 'attachment' in msg_txt:

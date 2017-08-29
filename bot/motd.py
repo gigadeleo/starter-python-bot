@@ -50,12 +50,7 @@ def extract_word():
             examples_data = json.loads(examples_resulting_url.read())
 
             example_phrase1 = examples_data["examples"][0]["first"] + "\r\n" + examples_data["examples"][0]["second"]
-            
-            print maltese_word
-            print english_word
-            print word_type
-            print example_phrase1
-            
+                        
             # if any empty strings, discard and try another word
             if not maltese_word or not english_word or not word_type:
                 fields_full = 0
