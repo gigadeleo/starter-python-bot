@@ -51,16 +51,17 @@ def extract_word():
 
             example_phrase1 = examples_data["examples"][0]["first"] + "\r\n" + examples_data["examples"][0]["second"]
             
+            print maltese_word
+            print english_word
+            print word_type
+            print example_phrase1
+            
             # if any empty strings, discard and try another word
             if not maltese_word or not english_word or not word_type:
                 fields_full = 0
                 # print "some fields empty"
             else:
                 fields_full = 1
-            print "MW:" + maltese_word
-            print "EW:" + english_word
-            print "WT:" + word_type
-            print "EPh:" + example_phrase1
         except:
             fields_full = 0
             # print "Exception: Non-conforming format."
