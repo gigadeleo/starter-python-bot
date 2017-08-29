@@ -68,8 +68,8 @@ def create_mwotd(maltese_word, english_word, word_type):
     rnd_back = random.randint(1,6)
     img = Image.open("bot/motd/image" + str(rnd_back) + ".png")
     draw = ImageDraw.Draw(img)
-    mword_font = ImageFont.truetype(font="verdana.ttf", size=50)
-    eword_font = ImageFont.truetype(font="verdana.ttf", size=30)
+    mword_font = ImageFont.truetype(font="bot/verdana.ttf", size=50)
+    eword_font = ImageFont.truetype(font="bot/verdana.ttf", size=30)
     
     # textwrap long words (chances are it may overlap)
     maltese_wordwrap = textwrap.wrap(maltese_word, width=18)
