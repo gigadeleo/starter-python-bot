@@ -1,5 +1,5 @@
-name: Beepboop Starterbot
-description: A simple Python bot sample for Beep Boop
+name: Renato
+description: A slackbot written in Python helping you a Maltese word every day
 avatar: resources/avatar.png
 background: resources/background.png
 config:

@@ -74,11 +74,20 @@ class Messenger(object):
         answer = "To eat the chicken on the other side! :laughing:"
         self.send_message(channel_id, answer)
 
+    def write_motd2 (self, channel_id, example_phrase):
+        attachment = {
+            "pretext": "We bring bots to life. :sunglasses: :thumbsup:",
+            "title": "Host, deploy and share your bot in seconds.",
+            "text": example_phrase,
+            "image_url": "https://storage.googleapis.com/beepboophq/_assets/bot-1.22f6fb.png",
+            "color": "#7CD197",
+        }
+        self.clients.web.chat.post_message(channel_id, example_phrase, attachments=[attachment], as_user='true')
+
     def write_motd(self, channel_id, file, example_phrase):
         txt = "Here is the Maltism of the Day (motd)"
         self.send_message(channel_id, txt)
-        self.post_message(channel_id, txt, attachments=file, as_user='true')
-        #self.clients.web.chat.post_image(filename=file, token=slack_token, channels=channel_id)
+        self.clients.web.chat.post_image(filename=file, token=slack_token, channels=channel_id)
         self.send_message(channel_id, example_phrase)
 
     def write_error(self, channel_id, err_msg):
