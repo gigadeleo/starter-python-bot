@@ -74,7 +74,7 @@ class Messenger(object):
         answer = "To eat the chicken on the other side! :laughing:"
         self.send_message(channel_id, answer)
 
-    def write_motd2 (self, channel_id, example_phrase):
+    def write_motd (self, channel_id, example_phrase):
         attachment = {
             "pretext": "We bring bots to life. :sunglasses: :thumbsup:",
             "title": "Host, deploy and share your bot in seconds.",
@@ -84,7 +84,7 @@ class Messenger(object):
         }
         self.clients.web.chat.post_message(channel_id, example_phrase, attachments=[attachment], as_user='true')
 
-    def write_motd(self, channel_id, file, example_phrase):
+    def write_motd2 (self, channel_id, file, example_phrase):
         txt = "Here is the Maltism of the Day (motd)"
         self.send_message(channel_id, txt)
         self.clients.web.chat.post_image(filename=file, token=slack_token, channels=channel_id)
