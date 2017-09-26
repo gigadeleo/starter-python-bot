@@ -74,7 +74,7 @@ class Messenger(object):
         answer = "To eat the chicken on the other side! :laughing:"
         self.send_message(channel_id, answer)
 
-    def write_motd (self, channel_id, example_phrase):
+    def write_motd (self, channel_id, file, example_phrase):
         attachment = {
             "pretext": "We bring bots to life. :sunglasses: :thumbsup:",
             "title": "Host, deploy and share your bot in seconds.",
