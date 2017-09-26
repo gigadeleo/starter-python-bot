@@ -51,7 +51,7 @@ class Messenger(object):
         bot_uid = self.clients.bot_user_id()
         idiom = ['Toni taghni tina talli taghjtu tuta tajba, talli taghjtu tuta tajba Toni taghni tina.',
            'Dari rari tara re, tara lira tara re.',
-           'Ħija taġhni ħawħa u qalli: "Ħa, ħi, ħudu u ħawilla fil-ħamrija ħamra taħt il-ħitan tà Ħararaw.',
+           'Ħija tagħni ħawħa u qalli: "Ħa, ħi, ħudha u ħawwilha fil-ħamrija ħamra taħt il-ħitan tà Ħal Għargħur.',
            'Trakk fuq trakk. Trakk taħt trakk.',
            'Ġorġ raġa’ ġà mill-gaġġa tal-ġgant.',
            'Platt fuq platt, platt taħt platt.',
@@ -63,7 +63,7 @@ class Messenger(object):
         txt = '{}'.format(random.choice(idiom))
         self.send_message(channel_id, txt)
         self.clients.send_user_typing_pause(channel_id)
-        error = "\rI'm sorry, that means I didn't quite understand... Try this `<@" + bot_uid + "> help`"
+        error = "\rI'm sorry, that means 'I didn't quite understand'... Try this `<@" + bot_uid + "> help`"
         self.send_message(channel_id, error)
 
 
