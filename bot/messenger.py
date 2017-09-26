@@ -77,7 +77,7 @@ class Messenger(object):
     def write_motd(self, channel_id, file, example_phrase):
         txt = "Here is the Maltism of the Day (motd)"
         self.send_message(channel_id, txt)
-        self.post_image(filename=file, token=slack_token, channels=channel_id)
+        self.post_message(channel_id, txt, attachments=file, as_user='true')
         #self.clients.web.chat.post_image(filename=file, token=slack_token, channels=channel_id)
         self.send_message(channel_id, example_phrase)
 
